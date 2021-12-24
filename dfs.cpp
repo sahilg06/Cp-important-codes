@@ -36,8 +36,39 @@ void bfs(ll s)
 }
 """"""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""bfs2d""""
+struct node
+{
+    pll cd;
+    ll d; //distance
+};
+map<pll,ll>used;
+map<pll,ll>ar;
 
-
+ll bfs2d(pll s,pll des)
+{
+    if(!ar[s]||!ar[des]) return -1;
+    used[s]=1;
+    queue<node>q;
+    q.push({s,0});
+    while(!q.empty())
+    {
+        node v=q.front();
+        q.pop();
+        if(v.cd==des) return v.d;
+        For(i,0,7)
+        {
+            ll nx=v.cd.fi+dxx[i],ny=v.cd.sec+dyy[i];
+            if(used[{nx,ny}]==0 && ar[{nx,ny}])
+            {
+                used[{nx,ny}]=1;
+                q.push({{nx,ny},v.d+1});
+            }
+        }
+    }
+    return -1;
+}
+""""""""""""""""""""""""""""""""""""""""
 
 DFS
 /***********************************/

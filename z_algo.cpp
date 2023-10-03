@@ -102,6 +102,10 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cout << ", "; _print(v..
 /////////////////////////////////////////////////////////////////
 
 /**************coding****************************************/
+// consider [l,r) : indices of the rightmost segment match 
+//(i.e. among all detected segments we will keep the one that ends rightmost)
+// see r as a boundary, beyond r we haven't scanned our string
+// https://cp-algorithms.com/string/z-function.html
 
 vector<int> getz(string s) 
 {
@@ -109,6 +113,7 @@ vector<int> getz(string s)
     vector<int> z(n);
     int l = 0, r = 0;
 
+    // i: curr index
     for(int i = 1; i < n; i++) 
     {
         if(i < r)  z[i] = min(r - i, z[i - l]);

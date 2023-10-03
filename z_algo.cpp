@@ -101,59 +101,6 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cout << ", "; _print(v..
 #endif
 /////////////////////////////////////////////////////////////////
 
-/***************************************/
-// struct cmp 
-// {
-//     bool operator() (const pll &a, const pll &b)  const 
-//     {
-//         ll lena = a.sec - a.fi + 1;
-//         ll lenb = b.sec - b.fi + 1;
-//         if (lena == lenb) return a.fi < b.fi;
-//         return lena > lenb;
-//     }
-// };
-/********************************/
-
-
-ll binpow(ll a, ll b,ll m) 
-{
-    a %= m;
-    ll res = 1;
-    while (b > 0) 
-    {
-        if (b & 1)
-            res = res * a % m;
-        a = a * a % m;
-        b >>= 1;
-    }
-    return res;
-}
-
-ll lcm(ll a, ll b)
-{
-    ll g=__gcd(a, b);
-    return a/g*b;
-}
-ll Pow(ll a, ll b) 
-{
-    //a %= m;
-    ll res = 1;
-    while (b > 0) 
-    {
-        if (b & 1)
-            res = res * a ;//% m;
-        a = a * a ;//% m;
-        b >>= 1;
-    }
-    return res;
-}
-
-ll modinv(ll n,ll mod) 
-{
-    return binpow(n, mod - 2,mod);
-}
-
-
 /**************coding****************************************/
 
 vector<int> getz(string s) 
